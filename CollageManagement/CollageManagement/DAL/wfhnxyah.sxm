@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CollageManagement.DAL
+{
+    public class Student
+    {
+        private static string connectionString = ConfigurationManager.ConnectionStrings["ConnectionDatabase"].ToString();
+        private static SqlConnection sqlConnection=new SqlConnection(connectionString);
+        private SqlCommand sqlCommand=new SqlCommand("",sqlConnection);
+
+        Models.Student student=new Models.Student();
+        public bool AddStudent()
+        {
+            string querry = "INSERT INTO StudentTable(StudentId,Name,Session)VALUES('" + student.Id + "','" + student.Name + "','" + student.Session + "')";
+
+        }
+    }
+}
